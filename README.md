@@ -15,10 +15,10 @@ This assignment is based on Discriminative, bottom-up and Multistage mothod.
 A very important step of transporting a model written in one framework to another framework is done using ONNX. OONX is Open Neural Network Exchange through which one can transport a model developed in pytorch to a keras/caffe model and//or vice versa. ONNX runtime can also be used to do the inferencing without mode conversion to any other framework.
 
 Steps to do conversion/transportation is perfomed in Session5-HPE.ipynb
-	- load the pytorch model state dict for Monocular Human Pose Estimation
-	- check for predictions
-	- use pypi onnx to save the model as .onnx file
-	- (optional) load onnx model and further saved it as quantized model
+	1. load the pytorch model state dict for Monocular Human Pose Estimation
+	2. check for predictions
+	3. use pypi onnx to save the model as .onnx file
+	4. (optional) load onnx model and further saved it as quantized model
 
 This model is to be deployed on AWS lambda using serverless framework but the limitation for AWS lambda is 250 zipped contect.Hence, keeping above pretrained model is a challenge. To resolve this ONNX quantization is used to reduce the size of the pretrained model. And the prediction is done with the quantized model itself.
 
