@@ -14,20 +14,38 @@ This assignment is based on Discriminative, bottom-up and Multistage mothod.
 
 A very important step of transporting a model written in one framework to another framework is done using ONNX. OONX is Open Neural Network Exchange through which one can transport a model developed in pytorch to a keras/caffe model and//or vice versa. ONNX runtime can also be used to do the inferencing without mode conversion to any other framework.
 
+Note - This model is to be deployed on AWS lambda using serverless framework but the limitation for AWS lambda is 250 zipped contect.Hence, keeping a pretrained model either in pytorch or ONNX is a challenge. To resolve this ONNX quantization is used to reduce the size of the pretrained model.
+```
+
+# from onnxruntime.quantization import quantize
+# from onnxruntime.quantization import QuantizationMode
+
+# # Quantize
+# quantized_model = quantize(model_onnx, quantization_mode=QuantizationMode.IntegerOps)
+ 
+# # Save the quantized model
+# onnx.save(quantized_model, 'quantized_model_1.onnx')
+
+```
+
 Steps to do conversion/transportation is perfomed in Session5-HPE.ipynb
 ### Input Image
-![Image](https://github.com/eva4p2/hpe/blob/master/pose.png)
+![Image](https://github.com/eva4p2/hpe/blob/master/pose.jpg)
 ### 1. load the pytorch model state dict for Monocular Human Pose Estimation
-### 2. check for key point predictions
+### 2. check for keypoint predictions
 ![Image](https://github.com/eva4p2/hpe/blob/master/pose-with-keypoints.png)
 ### 3. use pypi onnx to save the model as .onnx file
 ### 4. (optional) load onnx model and further saved it as quantized model
 ### 5. infer via quantized model and join keypoints
 ### Output Image
 ![Image](https://github.com/eva4p2/hpe/blob/master/pose-hpe.png)
-This model is to be deployed on AWS lambda using serverless framework but the limitation for AWS lambda is 250 zipped contect.Hence, keeping above pretrained model is a challenge. To resolve this ONNX quantization is used to reduce the size of the pretrained model. And the prediction is done with the quantized model itself.
 
 
 
+References- 
+  All the models are stored in AWS S3 public bucket -
+  1. https://sandhu-tsai-models-s5.s3.ap-south-1.amazonaws.com/pose_resnet_50_256x256.pth.tar
+  2. https://sandhu-tsai-models-s5.s3.ap-south-1.amazonaws.com/simple_pose_estimation_1.onnx
+  3. https://sandhu-tsai-models-s5.s3.ap-south-1.amazonaws.com/quantized_model_1.onnx
 
 
