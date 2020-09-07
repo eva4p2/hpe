@@ -4,7 +4,7 @@ This approach of Human Pose Estimation is the simplest of others arrived since 2
 
 ![Image](https://github.com/eva4p2/hpe/blob/master/MPII-hpe.png)
 
-In this assignment the focus is more on MPII Dataset with 256x256_pose_resent_50 model. Below is the image in which model level comparison is done at the architecture level. Alongwith hourglass and CPN this model is compoared. Each model is an encoder-decoder model with 8x upssampling. This simplest apparach uses Resnet 50 as the backbone model on which deconvolutions are done to geneate 16 images of size 64x64. Hence the output of the model is an array of shape 16x64x64. Each array is the representation of joint detected on an input pose image.
+In this assignment the focus is more on MPII Dataset with 256x256_pose_resent_50 model. Below is the image in which model level comparison is done at the architecture level with hourglass and CPN. Each model is an encoder-decoder model with 8x upssampling. Monocular Human Pose Estimation uses Resnet50 as the backbone model on which deconvolutions are added (at C5 block in Resnet50) to geneate 16 images of size 64x64. Hence the output of the model is an array of shape 16x64x64. Each array is the representation of joint detected on an input pose image.
 
 ![Image](https://github.com/eva4p2/hpe/blob/master/model.png)
 
