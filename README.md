@@ -14,7 +14,7 @@ This assignment is based on Discriminative, bottom-up and Multistage mothod.
 
 A very important step of transporting a model written in one framework to another framework is done using ONNX. OONX is Open Neural Network Exchange through which one can transport a model developed in pytorch to a keras/caffe model and//or vice versa. ONNX runtime can also be used to do the inferencing without model conversion to any other framework model.
 
-Note - This model is to be deployed on AWS lambda using serverless framework but the limitation for AWS lambda is 250 zipped contect.Hence, keeping a pretrained model either in pytorch or ONNX is a challenge. To resolve this ONNX quantization is used to reduce the size of the pretrained model.
+Note - This model is to be deployed on AWS lambda using serverless framework but the limitation for AWS lambda is 250 zipped contect. Hence, keeping a pretrained model either in pytorch or ONNX is a challenge. To resolve this ONNX quantization is used to reduce the size of the pretrained model.
 ```
 
 # from onnxruntime.quantization import quantize
